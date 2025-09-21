@@ -1,0 +1,32 @@
+<div class="container mt-5">
+  <h2 class="text-center mb-4">Cadastro de Aniversariantes</h2>
+
+  <form (ngSubmit)="adicionar()" class="mb-4">
+    <div class="mb-3">
+      <label class="form-label">Nome</label>
+      <input type="text" class="form-control" [(ngModel)]="nome" name="nome" required>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Gênero</label>
+      <select class="form-select" [(ngModel)]="genero" name="genero">
+        <option value="masculino">Masculino</option>
+        <option value="feminino">Feminino</option>
+      </select>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Data de Nascimento</label>
+      <input type="date" class="form-control" [(ngModel)]="dataNascimento" name="dataNascimento" required>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Adicionar</button>
+  </form>
+
+  <h3>Aniversariantes Cadastrados</h3>
+  <ul class="list-group">
+    <li class="list-group-item" *ngFor="let pessoa of aniversariantes">
+      {{ pessoa.nome }} - {{ pessoa.genero }} - {{ pessoa.dataNascimento }}
+    </li>
+  </ul>
+</div>
